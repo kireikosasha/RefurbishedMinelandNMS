@@ -50,18 +50,17 @@ public class BookGuiService {
          if (pages.size() != commands.size()) {
              throw new IllegalArgumentException("Pages and commands lists must be of the same size!");
          }
-         ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
-         BookMeta meta = (BookMeta) book.getItemMeta();
+         final ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
+         final BookMeta meta = (BookMeta) book.getItemMeta();
          if (meta != null) {
              meta.setTitle(title);
              meta.setAuthor(author);
              for (int i = 0; i < pages.size(); i++) {
-                 String pageText = pages.get(i);
-                 String command = commands.get(i);
-                 ComponentBuilder pageBuilder = new ComponentBuilder(pageText);
-                 if (command != null) {
+                 final String pageText = pages.get(i);
+                 final String command = commands.get(i);
+                 final ComponentBuilder pageBuilder = new ComponentBuilder(pageText);
+                 if (command != null)
                      pageBuilder.event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, command));
-                 }
                  meta.spigot().addPage(pageBuilder.create());
              }
              book.setItemMeta(meta);

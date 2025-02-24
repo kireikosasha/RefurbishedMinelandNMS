@@ -10,23 +10,21 @@ import java.util.UUID;
 public class NMSFakePlayerFinder {
     private final Player player;
     public NMSFakePlayer findBy(final UUID uuid) {
-        for (final NMSFakePlayer n : NPCService.getNpcList()) {
-            if (n.getUuid().equals(uuid)
-                            && compare(n.getToPlayer(), player))
+        for (final NMSFakePlayer n : NPCService.getNpcList())
+            if (n.getUuid().equals(uuid) && compare(n.getToPlayer(), player))
                 return n;
-        }
         return null;
     }
     public NMSFakePlayer findBy(final int id) {
-        for (final NMSFakePlayer n : NPCService.getNpcList()) {
-            if (n.getId() == id && compare(n.getToPlayer(), player)) return n;
-        }
+        for (final NMSFakePlayer n : NPCService.getNpcList())
+            if (n.getId() == id && compare(n.getToPlayer(), player))
+                return n;
         return null;
     }
     public NMSFakePlayer findBy(final String name) {
-        for (final NMSFakePlayer n : NPCService.getNpcList()) {
-            if (n.getName().equals(name) && compare(n.getToPlayer(), player)) return n;
-        }
+        for (final NMSFakePlayer n : NPCService.getNpcList())
+            if (n.getName().equals(name) && compare(n.getToPlayer(), player))
+                return n;
         return null;
     }
     private static boolean compare(Player p, Player p2) {
