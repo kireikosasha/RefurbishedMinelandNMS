@@ -1,0 +1,6 @@
+name: MinelandNMS
+version: '${project.version}'
+author: pawsashatoy
+main: net.mineland.core.nms.MinelandNMSPlugin
+api-version: '1.16'
+depend: [ProtocolLib]
